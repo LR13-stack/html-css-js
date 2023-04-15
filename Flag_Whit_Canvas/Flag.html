@@ -1,0 +1,39 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    //variables
+    var x = Number(prompt("Enter a x coordinate"));
+    var y = Number(prompt("Enter a y coordinate"));
+    var color = [];
+
+    //array 3 colors
+    for (var i = 0; i < 3; i++) {
+        //3 colors in array for flag
+        color[i] = prompt("Enter a color");
+    }
+
+
+    //function to draw a square given coordinates and color
+    function drawSquare(x, y, color) {
+        //variables
+        var canvas = document.querySelector("canvas");
+        var brush = canvas.getContext("2d");
+
+        //draw square
+        brush.fillStyle = color;
+        brush.fillRect(x, y, 50, 50);
+
+        //draw border
+        brush.strokeStyle = "black";
+        brush.strokeRect(x, y, 50, 50);
+    }
+
+
+    //draw a flag
+    for (var i = 0; i < 3; i++) {
+        var x_ = [x, x+50, x+100]
+        drawSquare(x_[i], y, color[i]);
+    }
+
+</script>

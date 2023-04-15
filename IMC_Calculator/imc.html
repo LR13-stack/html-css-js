@@ -1,0 +1,62 @@
+<meta charset="utf-8">
+
+
+<!-- Title -->
+<h1>IMC Calculator</h1>
+
+<!-- Sub -->
+<h4>This is a program created with JavaScript.</h4>
+
+<script>
+
+    //variables
+    var name = prompt("Enter your name...");
+    var weight = prompt(name + " , enter your weight (kg)...");
+    var height = prompt(name + ", enter your height (m)...");
+    var imc = imc(weight, height);
+
+
+    //funcions
+    //function to calculate IMC
+    function imc(weight, height) {
+        //imc = weight / (height^2) == weight / (height * height)
+        //var imc = weight / (height * height);
+        var imc = weight / Math.pow(height, 2);
+        return imc;
+    }
+
+    //function to calculate the health status given the IMC
+    function healthStatus(imc) {
+        //imc is less than 18.5 is low underweight
+        if (imc < 18.5) {
+            return "underweight";
+        }
+        //imc is between 18.5 - 25 is adequate
+        else if (imc >= 18.5 && imc < 25) {
+            return "adequate";
+        }
+        //imc is between 25 - 30 is overweight
+        else if (imc >= 25 && imc < 30) {
+            return "overweight";
+        }
+        //imc is greater than 30 is obesity
+        else if (imc >= 30) {
+            return "obesity";
+        }
+    }
+
+    //function to show the result
+    function showResult(imc) {
+        //we round the result to 2 decimal places
+        imc = imc.toFixed(2);
+        document.write(name + ", your imc is: " + imc);
+        document.write("<br>");
+        document.write("Your health status is: " + healthStatus(imc));
+    }
+
+
+    //main
+    //show the result
+    showResult(imc);
+
+</script>
